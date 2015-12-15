@@ -5,7 +5,8 @@
 		<title>Guessing Game</title>
 		<link href = 'main.css' rel="stylesheet"/>
 	</head>
-	
+	<script src = “jquery.min.js”></script>
+	<script src = “guessingGame.js”></script>
 	<body>
 		
 		<div class = "header">
@@ -14,14 +15,14 @@
 
 		<div class = "guess">	
 			<form>
-				Your Guess: <input type="text" name="You Guess" value="Input your guess here"><br>
-				<input type="submit" value="Submit">
+				<input type="text" id="Guess" name="Your Guess" value="Input your guess here"><br>
+				<input type="submit" id="Submit" value="Submit">
 			</form>
 		</div>
 
 		<div class = "buttons">
-			<button type="button">Reset</button>
-			<button type="button">Hint</button>
+			<button type="button" id="Reset">Reset</button>
+			<button type="button" id="Hint">Hint</button>
 		</div>
 
 	</body>
