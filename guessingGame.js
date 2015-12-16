@@ -77,13 +77,13 @@ function checkRepeat(num) {
 function checkGuess(){
 	if (playersGuess === winningNumber) {
 		$("#Notification").text("WOOHOO! You won!");
-		$("#Notification").css("font-size", "30px")
-		$("body").css("background-color", "green")
+		$("#Notification").css("font-size", "30px");
+		$("body").css("background-color", "green");
 	}
 
 	else if(checkRepeat(playersGuess) === true) {
 		$("#Notification").text("Submitted a duplicate guess! Pick another one!");
-		$("body").css("background-color", "orange")
+		$("body").css("background-color", "orange");
 	}
 
 	else if(maxGuesses > 0) {
@@ -94,8 +94,8 @@ function checkGuess(){
 
     else {
     	$("#Notification").text("No more guesses left. Play again by hitting reset button");
-    	$("#Notification").css("font-size", "30px")
-		$("body").css("background-color", "red")
+    	$("#Notification").css("font-size", "30px");
+		$("body").css("background-color", "red");
     }
   }
 
