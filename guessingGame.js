@@ -20,11 +20,11 @@ function playersGuessSubmission(){
 	//convert to number using +
 	playersGuess = +$("#Guess").val();
 
-	//push guess into array
-	guessArray.push(playersGuess);
-
 	//invoke checkGuess function
 	checkGuess();
+
+	//push guess into array
+	guessArray.push(playersGuess);
 
 	//Remove player's guess from DOM
 	$("#Guess").val("");
@@ -59,14 +59,14 @@ function guessMessage() {
 		msg2 = "CLOSE! Your guess is less than 5 digits from winning number. "		
 	}
 
-	$("#guessmessage").text($msg1 + $msg2);
+	$("#guessmessage").text(msg1 + msg2);
 }
 
 //Check for repeats
 function checkRepeat(num) {
 	for (var i = 0; i < guessArray.length; i++) {
 		if (num === guessArray[i]) {
-			guessArray.splice(i,1);
+			// guessArray.splice(i,1);
 			return true;
 		}
 	}
@@ -88,7 +88,7 @@ function checkGuess(){
 
 	else if(maxGuesses > 0) {
 		maxGuesses--;
-		$("#Notification").text("Wrong guess! Try again!" + $maxGuesses + " guesses left!");
+		$("#Notification").text("Wrong guess! Try again!" + maxGuesses + " guesses left!");
 		guessMessage();
     }
 
