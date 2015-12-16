@@ -1,22 +1,26 @@
 body {
-	background-color: peachpuff;
+	background-color: #ffccff;
 }
 
-h1 {
+.header {
+	background-image: url('http://hdwallpaperia.com/wp-content/uploads/2014/01/Clouds-Wallpaper-Free-Download.jpg');
 	font-family: Verdana;
-	font-size: 50px;
+	font-size: 20px;
 	text-align: center;
 	color: green;
 	border: 20px solid black;
 	padding: 30px 10px 30px 10px;
 }
 
-form {
+.inputbox {
 	text-align: center;
 	margin: auto;
 	padding:20px;
-	width:280px;
 	font-size: 40px
+}
+
+.message {
+	text-align: center;
 }
 
 .buttons {
@@ -36,6 +40,8 @@ button {
 	font-family: Verdana;
 }
 
-.header {
-	background-image: url('http://hdwallpaperia.com/wp-content/uploads/2014/01/Clouds-Wallpaper-Free-Download.jpg');
+#Notification{
+  font-family: Verdana;
+  color: white;
+  font-size: 20px;
 }
