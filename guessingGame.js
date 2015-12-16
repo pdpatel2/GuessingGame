@@ -20,11 +20,14 @@ function playersGuessSubmission(){
 	//convert to number using +
 	playersGuess = +$("#Guess").val();
 
-	//push guess into array
-	guessArray.push(playersGuess);
+	//change color back to original
+	$("body").css("background-color", "#ffccff");
 
 	//invoke checkGuess function
 	checkGuess();
+
+	//push guess into array
+	guessArray.push(playersGuess);
 
 	//Remove player's guess from DOM
 	$("#Guess").val("");
@@ -33,10 +36,10 @@ function playersGuessSubmission(){
 // Determine if the next guess should be a lower or higher number
 function lowerOrHigher() {
   if(playersGuess>winningNumber) {
-    return "Pick lower.";
+    return "Pick lower. ";
   }
   else {
-  	return "Pick higher.";
+  	return "Pick higher. ";
   }
 }
 
@@ -59,7 +62,7 @@ function guessMessage() {
 		msg2 = "CLOSE! Your guess is less than 5 digits from winning number. "		
 	}
 
-	$("#guessmessage").text($msg1 + $msg2);
+	$("#guessmessage").text(msg1 + msg2);
 }
 
 //Check for repeats
@@ -76,9 +79,12 @@ function checkRepeat(num) {
 // Check if the Player's Guess is the winning number 
 function checkGuess(){
 	if (playersGuess === winningNumber) {
-		$("#Notification").text("WOOHOO! You won!");
-		$("#Notification").css("font-size", "30px");
+		$("#Notification").text("WOOHOO! YOU WON!");
+		$("#Notification").css("font-size", "20px");
 		$("body").css("background-color", "green");
+		$(".inputbox").hide();
+		$("#guessmessage").hide();
+		$("#Hint").hide();
 	}
 
 	else if(checkRepeat(playersGuess) === true) {
@@ -86,22 +92,31 @@ function checkGuess(){
 		$("body").css("background-color", "orange");
 	}
 
-	else if(maxGuesses > 0) {
+	else if(maxGuesses > 1) {
 		maxGuesses--;
-		$("#Notification").text("Wrong guess! Try again!" + $maxGuesses + " guesses left!");
-		guessMessage();
+		if (maxGuesses === 1) {
+			$("#Notification").text("Wrong guess - try again. This is your LAST guess!");
+			guessMessage();
+		}
+		else {		
+			$("#Notification").text("Wrong guess - try again. " + maxGuesses + " guesses left!");
+			guessMessage();
+		}
     }
 
     else {
-    	$("#Notification").text("No more guesses left. Play again by hitting reset button");
-    	$("#Notification").css("font-size", "30px");
+    	$("#Notification").text("YOU LOSE! Hit Reset to play again");
+    	$("#Notification").css("font-size", "20px");
 		$("body").css("background-color", "red");
+		$(".inputbox").hide();
+		$("#guessmessage").hide();
+		$("#Hint").hide();
     }
   }
 
 // Create a provide hint button that provides additional clues to the "Player"
 function provideHint(){
-	$("#Notification").text("The answer is " + $winningNumber);
+	$("#Notification").text("The answer is " + winningNumber);
 }
 
 // Allow the "Player" to Play Again
